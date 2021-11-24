@@ -6,6 +6,6 @@
  - work together 
 
 ### Catagories
-- Centralized ![Centralized-Version-Control-System-Workflow-What-Is-Git-Edureka](https://user-images.githubusercontent.com/48562260/143175839-20e28d56-b455-47f6-b560-df521d385224.png)
+- Centralized ![Centralized-Version-Control-System-Workflow-What-Is-Git-Edureka](https://user-images.githubusercontent.com/48562260/143176323-a6e04f13-b938-436c-9ed3-4ef03d3fe8e5.png)
 
-- distributed![Distributed-Version-Control-System-Workflow-What-Is-Git-Edureka](https://user-images.githubusercontent.com/48562260/143175889-c91b0a3b-1718-47d2-adba-45ec1dd69f0e.png)
+- distributed ![Distributed-Version-Control-System-Workflow-What-Is-Git-Edureka](https://user-images.githubusercontent.com/48562260/143176332-287b72d1-bf44-459f-bd34-00deee85316d.png)
