@@ -1,6 +1,6 @@
  # GIT Essential Training Basic 
  ## Version Control 
  
- ### Why ?
- track history 
- work together 
+ ### Why you need Version control ?
+ - track history 
+ - work together 
