@@ -14,3 +14,16 @@
 - Centralized ![Centralized-Version-Control-System-Workflow-What-Is-Git-Edureka](https://user-images.githubusercontent.com/48562260/143176323-a6e04f13-b938-436c-9ed3-4ef03d3fe8e5.png)
 
 - distributed ![Distributed-Version-Control-System-Workflow-What-Is-Git-Edureka](https://user-images.githubusercontent.com/48562260/143176332-287b72d1-bf44-459f-bd34-00deee85316d.png)
+
+### What we are going to learn ?
+- How to keep track of the different versions of your code and configuration files using version control systems or VCS.
+-  These are tools that everyone in IT can benefit from, even if it's not just for programming or automation itself. It will allow us to easily roll back when mistakes happen and also help us collaborate with others.
+-  Popular VCS GIT 
+-  go through how to set up an account with GitHub
+-  store your codes history in Git, and collaborate with others in GitHub
+-  GitHub portfolios 
+
+### Course prerequisites
+- few basic operating system concepts like files, directories, and file systems
+- command line for interacting with Gi
+   
