@@ -22,8 +22,12 @@
 -  go through how to set up an account with GitHub
 -  store your codes history in Git, and collaborate with others in GitHub
 -  GitHub portfolios 
+-  Git Commands  
 
 ### Course prerequisites
 - few basic operating system concepts like files, directories, and file systems
 - command line for interacting with Gi
    
+   
+### What is GIT ?
+It's a most popular version control system in the world.
