@@ -29,5 +29,7 @@
 - command line for interacting with Gi
    
    
+---
+   
 ### What is GIT ?
 It's a most popular version control system in the world.
