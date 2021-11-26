@@ -51,7 +51,6 @@ Firstly, we have to download the last stable release from official page. https:/
 Run the executable, and click “next” button until you get to the following step:
 ![image](https://user-images.githubusercontent.com/48562260/143528696-f2bb2aac-98be-4605-8385-033dc691f05d.png)
 
-![image](https://user-images.githubusercontent.com/48562260/143528788-fdf4e5d7-0700-45c2-9a8b-7e0bf660f56f.png)
 
 ### Git usage
 In this chapter, we will see how to use Git to start with our version controlling.
@@ -59,6 +58,6 @@ In this chapter, we will see how to use Git to start with our version controllin
 #### Creating a repository
 To begin using Git, we have first to create a repository, also known as “repo”. For that, in the directory where we want to have the repository, we have to execute:
 
-``` git init ```
+> ``` git init
 We have a Git repository! Note that a folder named .git has been created. The repository will be the directory where the .git folder is placed. This folder is the repository metadata, an embedded database. It’s better not to touch anything inside it while you are not familiarized with Git
 
