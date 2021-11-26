@@ -58,6 +58,6 @@ In this chapter, we will see how to use Git to start with our version controllin
 #### Creating a repository
 To begin using Git, we have first to create a repository, also known as “repo”. For that, in the directory where we want to have the repository, we have to execute:
 
-> ``` git init
+> ''' git init ```
 We have a Git repository! Note that a folder named .git has been created. The repository will be the directory where the .git folder is placed. This folder is the repository metadata, an embedded database. It’s better not to touch anything inside it while you are not familiarized with Git
 
