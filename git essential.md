@@ -101,6 +101,23 @@ Now, we can do the commit!
 ```
 git commit
 ```
-Now, the default text editor will be shown, where we have to type the commit message, and then save. If we leave the message empty, the commit will be aborted.
+Now, the default text editor will be shown, where we have to type the commit message, and then save. **If we leave the message empty, the commit will be aborted.**
 
+Additionally, we can use the shorthand version with ``` -m ``` flag, specifying the commit message inline:
+```
+git commit -m 'Commit message for first commit!'
+```
+
+We can add all the files of the current directory, recursively, to the index, with .:
+```
+git add .
+```
+
+Note that the following:
+
+```
+echo 'Second commit!' > README.txt
+git add README.txt
+echo 'Or is it the third?' > README.txt
+git commit -m 'Another commit'
 
