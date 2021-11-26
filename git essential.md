@@ -82,6 +82,7 @@ Adding this file, the status of the repository has changed, since a new file has
 git status
 ```
 Which, in this case, would generate the following output:
+
 ![image](https://user-images.githubusercontent.com/48562260/143530724-c5675b34-48fc-4b48-ba9e-2152a937ca54.png)
 
 What Git is saying is _“you have a new file in the repository directory, but this file is not yet selected to be committed“_.
@@ -91,8 +92,11 @@ If we want to include this file the commit, remember that it has to be added to 
 git add README.txt
 ```
 ![image](https://user-images.githubusercontent.com/48562260/143530873-d9daaca5-0f6a-4ae1-bb64-9955a797073c.png)
+
 Again, the status of the repository has changes:
+
 ![image](https://user-images.githubusercontent.com/48562260/143530945-4e632d1b-56b1-45ff-858a-06f8e28270e7.png)
+
 Now, we can do the commit!
 ```
 git commit
