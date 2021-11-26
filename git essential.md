@@ -33,3 +33,13 @@
    
 ### What is GIT ?
 It's a most popular version control system in the world.
+
+### Download and install Git
+
+#### Linux
+Git can be installed in Linux executing the following commands:
+```
+sudo apt-get update
+sudo apt-get install git
+```
+
