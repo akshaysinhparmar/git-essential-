@@ -42,4 +42,7 @@ Git can be installed in Linux executing the following commands:
 sudo apt-get update
 sudo apt-get install git
 ```
+#### Windows
+Firstly, we have to download the last stable release from official page. https://git-scm.com/downloads
 
+Run the executable, and click “next” button until you get to the following step:
