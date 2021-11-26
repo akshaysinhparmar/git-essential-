@@ -60,5 +60,43 @@ To begin using Git, we have first to create a repository, also known as “repo�
 ``` 
 git init 
 ```
+![image](https://user-images.githubusercontent.com/48562260/143530401-72e87c1f-2c44-4316-ba69-aa50ff5b14c3.png)
+
 We have a Git repository! Note that a folder named .git has been created. The repository will be the directory where the .git folder is placed. This folder is the repository metadata, an embedded database. It’s better not to touch anything inside it while you are not familiarized with Git
+
+#### Creating the history: commits
+Git constructs the history of the repository with commits. 
+- A commit is a full snapshot of the repository, that is saved in the database. 
+- Every state of the files that are committed, will be recoverable later at any moment.
+
+When doing a commit, we have to choose which files are going to be committed; not all the repository has to be committed necessarily. This process is called ***staging***, where files are added to the index. The _**Git index**_ is where the data that is going to be saved in the commit is stored temporarily, until the commit is done.
+
+Let’s see how it works.
+
+We are going to create a file and add some content to it, for example:
+```
+echo 'My first commit!' > README.txt
+```
+Adding this file, the status of the repository has changed, since a new file has been created in the **working directory**. We can check for the status of the repository with the status option:
+```
+git status
+```
+Which, in this case, would generate the following output:
+![image](https://user-images.githubusercontent.com/48562260/143530724-c5675b34-48fc-4b48-ba9e-2152a937ca54.png)
+
+What Git is saying is _“you have a new file in the repository directory, but this file is not yet selected to be committed“_.
+
+If we want to include this file the commit, remember that it has to be added to the index. This is made with the add command, as Git suggests in the output of status :
+```
+git add README.txt
+```
+![image](https://user-images.githubusercontent.com/48562260/143530873-d9daaca5-0f6a-4ae1-bb64-9955a797073c.png)
+Again, the status of the repository has changes:
+![image](https://user-images.githubusercontent.com/48562260/143530945-4e632d1b-56b1-45ff-858a-06f8e28270e7.png)
+Now, we can do the commit!
+```
+git commit
+```
+Now, the default text editor will be shown, where we have to type the commit message, and then save. If we leave the message empty, the commit will be aborted.
+
 
