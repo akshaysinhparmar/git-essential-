@@ -207,4 +207,47 @@ The content of the file will be:
 
 This is because, after creating the history of ```second-branch``` , we have placed the ```HEAD``` pointing to ``` master ```:
 ![image](https://user-images.githubusercontent.com/48562260/143672070-6c453b8d-934b-4b71-ab42-b23d26f5f08a.png)
+
  Independent history for second-branch.
+ 
+ #### Combining histories: merging branches
+ 
+ In the previous subsection, we have seen how we can create different paths for our repository history. Now, we are going to see how to combine them, what for Git is calling merging.
+
+Let’s suppose that, after the changes made in second-branch, is ready to return to master. For that, we have to place the HEAD in the destination branch (master), and specify the branch that is going to be merged to this destination branch (second-branch), with merge command:
+
+```
+git checkout master
+git merge second-branch
+```
+Now, the history of the ``` second-branch ``` has been merged to ``` master ```, so, all the changes made in this first branch have been applied to the second.
+
+In this case, the entire history of ``` second-branch ``` is now part of the **history** of ``` master ``` , having a graph like the following:
+![image](https://user-images.githubusercontent.com/48562260/143672363-19bedda8-38c6-4da9-9060-1c13100d8163.png)
+
+As you can see, no track of the life of ```second-branch``` has been saved, when you probably were expecting a nice tree.
+
+This is because Git merged the branch using the _fast-forward mode_. 
+Note that is telling it in the merge output, shown above. Why did Git do this? Because master and second-branch shared the _common ancestor_, f043d98.
+
+When we are merging branches, is always advisable** not to use** the fast-forward mode. This is achieved passing **--no-ff** flag while merging:
+```
+git merge --no-ff second-branch
+```
+_What does this really do?_  Well, it just creates an intermediate, third commit, between the **HEAD**, and the “**from**” branch’s last commit.
+
+After saving the commit message (of course, is editable), the branch will be merged, having the following history:
+
+![image](https://user-images.githubusercontent.com/48562260/143672533-35d732ec-8b7d-4a5f-9048-18581194688b.png)
+
+History after merging second-branch to master, using no fast-forward mode.
+
+Which is much more expressive, since the history is reflected as it is actually is. The no fast-forward mode should be always used.
+
+A merge of a branch supposes the end of the life of this. So, it should be deleted:
+
+```
+git branch -d second-branch
+```
+Of course, in the future, you can create again a second-branch named branch.
+
