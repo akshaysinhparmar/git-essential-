@@ -166,3 +166,45 @@ Taking into account this, the proper way to express the history would be the fol
 ![image](https://user-images.githubusercontent.com/48562260/143671265-c44651a4-58d0-4a3f-b087-8b609421ef92.png)
 
 History of the repository, showing the branch pointer.
+
+Creating a branch with Git is so simple:
+
+```
+git branch <branch-name>
+```
+
+For example:
+
+```
+git branch second-branch
+```
+And that’s it.
+
+But, what is Git doing really when it creates a branch? It just creates a pointer with that branch name that points to the commit where the branch has been created:
+
+![image](https://user-images.githubusercontent.com/48562260/143671475-c43fbeb9-f37f-43f3-924e-1d23cc8d4910.png)
+
+This is one of the most notable features of Git: the branch creation speed, almost instantaneous, regardless of the repository size.
+
+To start working in that branch, we have to ```checkout``` it:
+```
+git checkout second-branch
+```
+![image](https://user-images.githubusercontent.com/48562260/143671552-94340e64-0a1d-40e5-9168-06e15bd587c9.png)
+ 
+ Now, the commits will only exist in ```second-branch```. 
+ Why? Because the HEAD now is pointing to second-branch, so, the history created from now will have an independent path from master.
+
+We can see it making a couple of commits being located in second-branch:
+![image](https://user-images.githubusercontent.com/48562260/143671906-2e98e634-34d0-4f0d-9369-168ac5cceb2f.png)
+
+**But, what if we return to master?**
+```
+git checkout master
+```
+The content of the file will be:
+ > Second commit!
+
+This is because, after creating the history of ```second-branch``` , we have placed the ```HEAD``` pointing to ``` master ```:
+![image](https://user-images.githubusercontent.com/48562260/143672070-6c453b8d-934b-4b71-ab42-b23d26f5f08a.png)
+ Independent history for second-branch.
