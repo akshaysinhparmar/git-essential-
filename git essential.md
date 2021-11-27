@@ -52,10 +52,10 @@ Run the executable, and click “next” button until you get to the following s
 ![image](https://user-images.githubusercontent.com/48562260/143528696-f2bb2aac-98be-4605-8385-033dc691f05d.png)
 
 
-### Git usage
+## Git usage
 In this chapter, we will see how to use Git to start with our version controlling.
 
-#### Creating a repository
+### Creating a repository
 To begin using Git, we have first to create a repository, also known as “repo”. For that, in the directory where we want to have the repository, we have to execute:
 ``` 
 git init 
@@ -64,7 +64,7 @@ git init
 
 We have a Git repository! Note that a folder named .git has been created. The repository will be the directory where the .git folder is placed. This folder is the repository metadata, an embedded database. It’s better not to touch anything inside it while you are not familiarized with Git
 
-#### Creating the history: commits
+### Creating the history: commits
 Git constructs the history of the repository with commits. 
 - A commit is a full snapshot of the repository, that is saved in the database. 
 - Every state of the files that are committed, will be recoverable later at any moment.
@@ -136,7 +136,7 @@ Each commit points to the commit it has been created from, being this called the
 Note that HEAD element. This is one of the most important element in Git. _**The HEAD**_ is the element that points to the current point in the repository history. **The contents of the working directory will be those that belong to the snapshot the HEAD is pointing to.
 **
 
-##### Tips for creating good commit messages
+#### Tips for creating good commit messages
 The commit message content is more important that it may seem at first sight. Git allows to add any kind of explanation for any change we made, without touching the source code, and we should always take advantage of this.
 
 For the message formatting, there’s an unwritten rule known as the 50/72 rule, which is so simple:
@@ -148,7 +148,7 @@ This is based on how Git formats the output when we are reviewing the history.
 
 But, more important than this, is the content of the message itself. The first thing that comes to mind to write are the changes that have been made, which is not bad at all. But the commit object itself is a description of the changes that have been made in the source code. To make the commit messages useful, **you should always include the reason that motivated the changes**
 
-#### Viewing the history
+### Viewing the history
 Of course, Git is able to show the history of the repository. For that, the log command is used:
 ~~~
 git log
@@ -159,7 +159,7 @@ git log --all --graph --decorate --oneline
 ```
 If you want, you can omit the --oneline flag for showing the full information of each commit.
 
-#### Independent development lines: branches
+### Independent development lines: branches
 Branching is probably the most powerful feature of Git. **A branch represents an independent development path.** The branches coexist in the same repository, but each one has its own history. In the previous section, we have worked with a branch, Git’s default branch, which is named ``` master ```.
 Taking into account this, the proper way to express the history would be the following, considering the branches.
 
@@ -209,8 +209,7 @@ This is because, after creating the history of ```second-branch``` , we have pla
 ![image](https://user-images.githubusercontent.com/48562260/143672070-6c453b8d-934b-4b71-ab42-b23d26f5f08a.png)
 
  Independent history for second-branch.
- 
- #### Combining histories: merging branches
+ ### Combining histories: merging branches
  
  In the previous subsection, we have seen how we can create different paths for our repository history. Now, we are going to see how to combine them, what for Git is calling merging.
 
