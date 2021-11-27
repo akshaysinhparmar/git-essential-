@@ -395,3 +395,30 @@ As when committing, we can specify the tag message inline, with -m flag:
 git tag -a v0.1 -m 'v0.1 stable release, changes from...'
  ```
 Take into account that the **_tag names cannot be repeated_** in a repository.
+ 
+ ### Undoing and deleting things
+Git also allows to undo and modify some things in the history. In this section we will see what can be done, and how.
+
+#### Modifying the last commit
+Is quite common to want to modify the last commit, for example, when just a line of code has to be added; or even to modify the update message, without changing any file.
+
+For that, Git has the ``` **--amend** ``` flag for ``` **commit** ``` command:
+```
+git commit --amend
+```
+ This is just the **same as committing** , but, instead of a new commit object, the **last one of that branch** will be **overwritten**.
+
+#### Discarding uncommitted changes
+This is for, after a commit, when we keep developing, we think that we have taken an incorrect path, and we want to reset the changes, returning to the last commit’s state.
+
+For this, the command used is ``` checkout ```, as for moving between branches. 
+ But, when **specifying a file**, this gets** reseted to the state** of the last commit.
+
+For example:
+```
+echo 'one' > test.txt
+git add test.txt 
+git commit -m 'commit one'
+echo 'two' > test.txt 
+git checkout test.txt # The content of test.txt is now 'one'.
+```
