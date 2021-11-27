@@ -412,7 +412,7 @@ git commit --amend
 This is for, after a commit, when we keep developing, we think that we have taken an incorrect path, and we want to reset the changes, returning to the last commit’s state.
 
 For this, the command used is ``` checkout ```, as for moving between branches. 
- But, when **specifying a file**, this gets** reseted to the state** of the last commit.
+ But, when **specifying a file**, this gets ** reseted to the state** of the last commit.
 
 For example:
 ```
@@ -422,3 +422,38 @@ git commit -m 'commit one'
 echo 'two' > test.txt 
 git checkout test.txt # The content of test.txt is now 'one'.
 ```
+ 
+ #### Deleting commits
+Usually, we want to delete commits when we don’t want to leave any record of an embarrassing commit, or just for removing useless changes.
+
+This is achieved moving the branch or ``` HEAD ``` pointers. Moving the pointers to previous commits makes the commits remaining ahead get “lost”, unlinked from the linked list. To move them, ``` **reset** ``` command is used.
+
+There are two ways of making a reset: 
+ - not touching the working directory ( **soft reset, --soft flag** ), or 
+ - resetting it too ( **hard reset, --hard flag** ). 
+ 
+ That is, if you make a **soft reset**, the **commit(s) will be removed** , but the modifications **saved in **that/those **commit(s)** **will remain**; and 
+ a **hard reset** , won’t leave change made in the commit(s). If no flag is specified, the reset will be done softly.
+
+Let’s start resetting things. The following command would remove the last commit, 
+ i.e., the ``` commit ``` where ``` HEAD ``` is pointing to:
+```
+git reset --hard HEAD~
+```
+ The ``` **~** ``` character is for indicating an **ancestor**. 
+ > **Used once**, indicates the **immediate parent**; twice, the grandparent; and so on. 
+ But, instead of typing ~ n times, we can specify the n ancestors that we want to remove:
+ ```
+git reset --hard HEAD~3
+ ```
+Which would remove the last 3 commits.
+
+You may have noticed that this may cause conflicts with those commits with more than one ancestor,
+ i.e., the result of a **not fast-forwarded merge** . Well, it doesn’t cause any problem: the followed parent using ``` HEAD~ ``` is always the first one. But there’s a way to decide which of the common parents follow: ``` ^,```  followed by the parent number. 
+ So, the following:
+```
+git reset --hard HEAD~2^2
+```
+ Would remove the previous two commits, but taking the path of the second ancestor.
+
+Even if it is possible to specify which ancestor path follow, is recommended to always use the syntax for first ancestor (only ~) since it’s easier, even if more commands would be required (since you would have to checkout the different branches to update ```  HEAD ``` position).
