@@ -294,8 +294,17 @@ CONFLICT (content): Merge conflict in file.txt
 Automatic merge failed; fix conflicts and then commit the result
 ```
 
-Git doesn’t know how to do it, because the changes made in second-branch are not directly applicable to master, since it has changed from this first branch inception. What Git has done is to indicate in which parts exists these incompatibilities.
+Git doesn’t know how to do it, **because** _the changes made in second-branch are not directly applicable to master,_ since it has changed from this first branch inception. What Git has done is to indicate in which parts exists these incompatibilities.
 
 Note that we haven’t used the --no-ff flag, since we now in advance that the fast-forward won’t be possible.
 
 If we check the status, we will see the following:
+
+>On branch master
+> You have unmerged paths.
+>  (fix conflicts and run "git commit")
+>
+>Unmerged paths:
+>  (use "git add <file>..." to mark resolution)
+> 
+>    both modified:      file.txt
