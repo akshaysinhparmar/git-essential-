@@ -154,7 +154,7 @@ Of course, Git is able to show the history of the repository. For that, the log 
 git log
 ~~~
 If you try it, you will see that the output is not very nice. The log command has many flags available to draw pretty graphs. Here’s a suggestion for using this command through this guide, even if graphs are shown for each scenario:
-``
+```
 git log --all --graph --decorate --oneline
 ```
 If you want, you can omit the --oneline flag for showing the full information of each commit.
