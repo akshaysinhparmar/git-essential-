@@ -394,4 +394,4 @@ As when committing, we can specify the tag message inline, with -m flag:
 ``` 
 git tag -a v0.1 -m 'v0.1 stable release, changes from...'
  ```
-Take into account that the ***tag names cannot be repeated *** in a repository.
+Take into account that the *** tag names cannot be repeated *** in a repository.
