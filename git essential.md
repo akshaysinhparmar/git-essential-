@@ -120,4 +120,49 @@ echo 'Second commit!' > README.txt
 git add README.txt
 echo 'Or is it the third?' > README.txt
 git commit -m 'Another commit'
+```
+**Would commit the file with** ``` 'Second commit!' ``` **content, because it was the one added to the index, and then we changed the file of the working directory**, not the one added to staging area. **To commit the latest change, we would have to add again the file to the index,** _being the first added file **overwritten**._
 
+Git identifies each commit uniquely using SHA1 hash function, based on the contents of the committed files. So, each commit is identified with a 40 character-long hexadecimal string, like the following, for example: ``` de5aeb426b3773ee3f1f25a85f471750d127edfe ``` . Take into account that the commit message, commit date, or any other variable rather than the committed files’ content (and size), are not included in the hash calculation.
+
+So, for our first two commit, the history would be the following:
+History of the repository, with two commits.
+![image](https://user-images.githubusercontent.com/48562260/143669117-ddbce443-f3da-4c70-b1d6-6b6cdafdd823.png)
+
+Git shortens the checksum of each commit to 7 characters (whenever it’s possible), to make them more legible.
+
+Each commit points to the commit it has been created from, being this called the “**ancestor**”.
+
+Note that HEAD element. This is one of the most important element in Git. _**The HEAD**_ is the element that points to the current point in the repository history. **The contents of the working directory will be those that belong to the snapshot the HEAD is pointing to.
+**
+
+##### Tips for creating good commit messages
+The commit message content is more important that it may seem at first sight. Git allows to add any kind of explanation for any change we made, without touching the source code, and we should always take advantage of this.
+
+For the message formatting, there’s an unwritten rule known as the 50/72 rule, which is so simple:
+
+- One first line with a summary of no more than 50 characters.
+- Wrap the subsequent explanations in lines of no more than 72 characters.
+- 
+This is based on how Git formats the output when we are reviewing the history.
+
+But, more important than this, is the content of the message itself. The first thing that comes to mind to write are the changes that have been made, which is not bad at all. But the commit object itself is a description of the changes that have been made in the source code. To make the commit messages useful, **you should always include the reason that motivated the changes**
+
+#### Viewing the history
+Of course, Git is able to show the history of the repository. For that, the log command is used:
+~~~
+git log
+~~~
+If you try it, you will see that the output is not very nice. The log command has many flags available to draw pretty graphs. Here’s a suggestion for using this command through this guide, even if graphs are shown for each scenario:
+``
+git log --all --graph --decorate --oneline
+```
+If you want, you can omit the --oneline flag for showing the full information of each commit.
+
+#### Independent development lines: branches
+Branching is probably the most powerful feature of Git. **A branch represents an independent development path.** The branches coexist in the same repository, but each one has its own history. In the previous section, we have worked with a branch, Git’s default branch, which is named ``` master ```.
+Taking into account this, the proper way to express the history would be the following, considering the branches.
+
+![image](https://user-images.githubusercontent.com/48562260/143671265-c44651a4-58d0-4a3f-b087-8b609421ef92.png)
+
+History of the repository, showing the branch pointer.
