@@ -251,3 +251,51 @@ git branch -d second-branch
 ```
 Of course, in the future, you can create again a ``` second-branch ``` named branch.
 
+###Conflictive merges
+In the previous section we have seen an “**automatic” merge**, i.e., _Git has been able to merge both histories_. 
+
+Why? Because of the previously mentioned common _**ancestor**_. That is, the branch is returning to the point it started from.
+
+But, when the branch another branch borns from suffers changes, problems appear.
+To understand this, let’s construct a new history, which will have the following graph:
+![image](https://user-images.githubusercontent.com/48562260/143673851-82dd8ffe-d230-43c2-af34-91d8cc197c6b.png)
+Continuing the history of master, after the creation of second-branch.
+
+With the following commands:
+```
+echo 'one' >> file.txt
+git add file.txt
+git commit -m 'first'
+ 
+echo 'two' >> file.txt
+git add file.txt 
+git commit -m 'second'
+ 
+git checkout -b second-branch
+ 
+echo 'three (from second-branch)' >> file.txt 
+git add file.txt 
+git commit -m 'third from second branch'
+ 
+git checkout master
+ 
+echo 'three' >> file.txt 
+git add file.txt 
+git commit -m 'third
+```
+What will happen if we try to merge second-branch to master?
+```
+git checkout master
+git merge second-branch
+```
+Git won’t be able to do it:
+```
+CONFLICT (content): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result
+```
+
+Git doesn’t know how to do it, because the changes made in second-branch are not directly applicable to master, since it has changed from this first branch inception. What Git has done is to indicate in which parts exists these incompatibilities.
+
+Note that we haven’t used the --no-ff flag, since we now in advance that the fast-forward won’t be possible.
+
+If we check the status, we will see the following:
