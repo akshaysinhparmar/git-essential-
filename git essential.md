@@ -249,5 +249,5 @@ A merge of a branch supposes the end of the life of this. So, it should be delet
 ```
 git branch -d second-branch
 ```
-Of course, in the future, you can create again a second-branch named branch.
+Of course, in the future, you can create again a ``` second-branch ``` named branch.
 
