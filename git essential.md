@@ -196,6 +196,7 @@ git checkout second-branch
  Why? Because the HEAD now is pointing to second-branch, so, the history created from now will have an independent path from master.
 
 We can see it making a couple of commits being located in second-branch:
+
 ![image](https://user-images.githubusercontent.com/48562260/143671906-2e98e634-34d0-4f0d-9369-168ac5cceb2f.png)
 
 **But, what if we return to master?**
