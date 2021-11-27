@@ -308,3 +308,90 @@ If we check the status, we will see the following:
 >  (use "git add <file>..." to mark resolution)
 > 
 >    both modified:      file.txt
+
+ ### Checking differences
+Git allows to check the differences between distinct points in the history. This is done with **diff** option.
+
+#### Interpreting the differences
+Before seeing what differences we can look at, firstly we have to understand how the differences are shown.
+
+Let’s see a sample output of a difference between the same file:
+ '''
+ diff --git a/README.txt b/README.txt
+index 31325b6..55e8d58 100644
+--- a/README.txt
++++ b/README.txt
+@@ -1,2 +1,2 @@
+-This is
+-the original file
++This file
++has been modified
+'''
+ Here, **a** is the a previous version of the file, and **b** the current version.
+
+The third and fourth line identifies each letter with a **-** or **+** symbol.
+
+That **@@ -1,2 +1,2 @@** is called **“hunk header”**. This identifies the chunks of code that actually have changed, not showing the common parts for both versions.
+
+The format is the following:
+
+```
+@@ <previous><from-line>,<number-of-lines> <current>,<from-line><number-of-lines>
+ ```
+In this case:
+
+- “previous”: identified with -, corresponding to a.
+- “from-line”: the line number from where the changes start.
+- “number-of-lines”: the number of lines shown.
+- “current”: identified with +, corresponding to b.
+Finally, which lines are subtracted, and which added, are shown. In this case, two lines have been subtracted from the line (those preceded with ``` **-** ```), and other two have been added (preceded with ``` **+** ```).
+ 
+### Differences between working directory and last commit
+One common use is to check the differences between the working directory and the last commit. For this, is enough to execute:
+```
+git diff
+```
+Which will show the difference for every file. We can specify also specific files:
+```
+git diff <file1> <file2>
+```
+ ### Differences between exact points in history
+We can look for differences with:
+
+- SHA1 id
+- Branch names
+- HEAD
+- Tags
+Being combinable between them.
+
+The syntax is the following:
+```
+git diff <original>..<modified>
+ ```
+For example, the following would show the changes that have been applied to dev branch, compared to a** v1.0 tag**:
+
+```
+git diff v1.0..dev
+``` 
+ ### Tagging important points
+Tagging is one of the nicest features of Git, since allows to mark important points in the repository history, in a very easy way. Usually, tags are used to mark releases, not only for stable releases, but also for under-development or incomplete releases, such as:
+
+- Alpha
+- Beta
+- Release candidate (rc)
+Creating a tag is so simple, we just have to situate the ``` HEAD ``` in the point we want to tag, and just specify the tag name with the tag option:
+```
+git tag -a <tag-name>
+```
+ For example:
+```
+git tag -a v0.1-beta1
+```
+ Then, we will be asked to type a message for the tag. 
+ Typically, the changes made from last tag are specified.
+
+As when committing, we can specify the tag message inline, with -m flag:
+``` 
+git tag -a v0.1 -m 'v0.1 stable release, changes from...'
+ ```
+Take into account that the _**tag names cannot be repeated **_in a repository.
